@@ -1,1 +1,3 @@
 5/26/18 - Devlog created still in planning stages 
+
+5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea
