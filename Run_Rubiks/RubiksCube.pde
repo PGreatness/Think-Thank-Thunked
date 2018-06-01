@@ -1,6 +1,6 @@
 public abstract class RubiksCube {
   protected int size;
-  protected color[][] front, back, left, right, up, down;//6 faces of a rubiks cube
+  color[][] front, back, left, right, up, down;//6 faces of a rubiks cube
   /**********************************************************************
    General use FXNs  
    
@@ -106,36 +106,36 @@ public abstract class RubiksCube {
 
   public void reset() {
     for (color[] m : front) {//front becomes red
-      for (color n : m) {
-        n = color(237, 19, 37);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(237, 19, 37);
       }
     }
     for (color[] m : back) {//becomes orange
-      for (color n : m) {
-        n = color(252, 156, 0);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(252, 165, 0);
       }
     }
     for (color[] m : up) {//becomes white
-      for (color n : m) {
-        n = color(255, 255, 255);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(255, 255, 255);
       }
     }
     for (color[] m : down) {//becomes yellow
-      for (color n : m) {
-        n = color(254, 255, 0);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(254, 255, 0);
       }
     }
     for (color[] m : left) {//becomes green
-      for (color n : m) {
-        n = color(0, 255, 27);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(0, 255, 27);
       }
     }
     for (color[] m : right) {//becomes blue
-      for (color n : m) {
-        n = color(0, 14, 255);
+      for (int x = 0; x < m.length;x++) {
+        m[x]= color(0, 14, 255);
       }
     }
-  }
+  }//end reset
 
   /**********************************************************************
    FXNS Incorporating turning     
