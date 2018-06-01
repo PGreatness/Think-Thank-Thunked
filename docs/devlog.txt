@@ -3,3 +3,5 @@
 5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea
 
 5/30/18 - Decided on pursuing a ribix cube simulation project. We also decided on the data structure to use - instead of having a 3D matrix (array of 2D arrays), we decided it would be better to store data in 6 separate 2D arrays, one for each face. This makes it easy so you dont have to deal with corner and side tiles having multiple colors in the 3D array. We also drew up a way to make sure the program always knows the path to solve the rubix cube. When you shuffle at the beginning, keep track of the moves you make in a STACK.
+
+5/31/18 - Created a rubiks cube abstract class
