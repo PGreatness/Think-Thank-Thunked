@@ -3,6 +3,8 @@ RubiksCube player;
 void setup(){
   size(1280,720);
   player = new twoCube();
+  player.reset();
+  player.front[0][0] = color(156,156,156);
 }
 
 void draw(){
@@ -18,4 +20,8 @@ void draw(){
       y+=100;
       x = 720;
    }
+}
+
+void mouseClicked() {
+ player.turnFC(); 
 }
