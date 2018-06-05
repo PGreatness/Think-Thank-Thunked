@@ -78,7 +78,7 @@ public class twoCube extends RubiksCube {  //<>//
     rotateHC(left);
     rotateHCC(right);
   }
-  public void rotateRight() {
+  public void rotateLeft() {
     color[][] temp = front;
     front = right;
     rotateHC(back);
@@ -88,8 +88,10 @@ public class twoCube extends RubiksCube {  //<>//
     rotateHC(left);
     back = left;
     left = temp;
+    rotateHC(up);
+    rotateHCC(down);
   }
-  public void rotateLeft() {
+  public void rotateRight() {
     color[][] temp = front;
     front = left;
     rotateHC(back);
@@ -99,5 +101,7 @@ public class twoCube extends RubiksCube {  //<>//
     rotateHC(right);
     back = right;
     right = temp;
+    rotateHC(down);
+    rotateHCC(up);
   }
 }//end class
