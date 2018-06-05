@@ -5,6 +5,11 @@ void setup() {
   player = new twoCube();
   player.reset();
   player.front[0][0] = color(156, 156, 156);
+  player.back[0][0] = color(156, 156, 156);
+  player.left[0][0] = color(156, 156, 156);
+  player.right[0][0] = color(156, 156, 156);
+  player.up[0][0] = color(156, 156, 156);
+  player.down[0][0] = color(156, 156, 156);
 }
 
 void draw() {
@@ -22,11 +27,6 @@ void draw() {
   }
 }
 
-void mouseClicked() {
-  //player.turnFC(); 
-
-  //player.rotateUp();
-}
 void keyPressed() {
   if (key == 119) {//w
     player.rotateUp();
@@ -39,5 +39,8 @@ void keyPressed() {
   }
   if (key == 100) {//d
     player.rotateRight();
+  }
+  if (key == 'b' || key == 'B') {
+   player.turnFC(); 
   }
 }
