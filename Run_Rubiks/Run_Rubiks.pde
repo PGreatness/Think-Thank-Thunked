@@ -1,6 +1,6 @@
 RubiksCube player;
 Button test = new Button(300, 500, 200, 100, "TurnFC()");
-Start begin = new Start();
+//Start begin = new Start();
 
 void setup() {
   size(1024, 768);
@@ -105,6 +105,36 @@ void keyPressed() {
   }
   if (key == 'B') {
     player.turnFCC();
+  }
+  if (key == 'g') {
+    player.turnRC();
+  }
+  if (key == 'G') {
+    player.turnRCC();
+  }
+  if (key == 'h') {
+    player.turnLC();
+  }
+  if (key == 'H') {
+    player.turnLCC();
+  }
+  if (key == 'n') {
+    player.turnBC();
+  }
+  if (key == 'N') {
+    player.turnBCC();
+  }
+  if (key == 'j') {
+    player.turnUC();
+  }
+  if (key == 'J') {
+    player.turnUCC();
+  }
+  if (key == 'm') {
+    player.turnDC();
+  }
+  if (key == 'M') {
+    player.turnDCC();
   }
 }
 void mouseClicked() {
