@@ -12,7 +12,6 @@ The user can also ask for a hint and and the move that will solve the cube the f
 We use six 2D arrays to store the colors of each face. 
 The driver of the simulation, along with checking for button presses, simply prints out a cube according to the colors 
 stored in these arrays. The arrays are modified when the user either makes a move or physically rotates the cube.
-Each possible rotation has its own method, but the moves 
 
 The move tracking is initiated when the cube is shuffled. A sequence of random moves will be performed on the cube, 
 and their opposites will be pushed into a stack. When the user makes a move, if it is a correct move (the top of the stack
