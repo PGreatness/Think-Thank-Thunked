@@ -7,3 +7,5 @@
 5/31/18 - Created a rubiks cube abstract class
 
 6/3/18 - Added limited rotational functionality for front face, mainly as a starting point. Face can rotate but doesn't compensate for the other faces yet. 
+
+6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces
