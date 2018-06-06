@@ -1,4 +1,6 @@
 RubiksCube player;
+Button test = new Button(300, 500, 200, 100, "TurnFC()");
+Start begin = new Start();
 
 void setup() {
   size(1024, 768);
@@ -14,8 +16,13 @@ void setup() {
 
 void draw() {
   clear();
-  int x =512;
+  int x = 512;
   int y = 384;
+  test.makeButton();
+  if (test.isPressed) {
+   player.turnFC();
+   test.isPressed = false;
+  }
   for (color[] m : player.front) {
     for (color n : m) {
       fill(n);
@@ -99,4 +106,7 @@ void keyPressed() {
   if (key == 'B') {
     player.turnFCC();
   }
+}
+void mouseClicked() {
+ test.mouseClicked(); 
 }
