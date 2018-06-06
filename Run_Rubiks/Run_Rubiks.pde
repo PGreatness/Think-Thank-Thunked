@@ -1,7 +1,7 @@
 RubiksCube player;
 
 void setup() {
-  size(1280, 720);
+  size(1024, 768);
   player = new twoCube();
   player.reset();
   player.front[0][0] = color(156, 156, 156);
@@ -14,17 +14,70 @@ void setup() {
 
 void draw() {
   clear();
-  int x =720;
-  int y = 360;
+  int x =512;
+  int y = 384;
   for (color[] m : player.front) {
     for (color n : m) {
       fill(n);
-      ellipse(x, y, 50, 50);
-      x+=100;
+      rect(x, y, 50, 50);
+      x+=50;
     }
-    y+=100;
-    x = 720;
+    y+=50;
+    x = 512;
   }
+  y-=220;
+  for (color[] m : player.up) {
+    for (color n : m) {
+      fill(n);
+      rect(x, y, 50, 50);
+      x+=50;
+    }
+    y+=50;
+    x = 512;
+  }
+  y-=220;
+  for (color[] m : player.back) {
+    for (color n : m) {
+      fill(n);
+      rect(x, y, 50, 50);
+      x+=50;
+    }
+    y+=50;
+    x = 512;
+  }
+  y = 504; 
+  for (color[] m : player.down) {
+    for (color n : m) {
+      fill(n);
+      rect(x, y, 50, 50);
+      x+=50;
+    }
+    y+=50;
+    x = 512;
+  }
+  y = 384;
+  x = 512 -120;
+  for (color[] m : player.left) {
+    for (color n : m) {
+      fill(n);
+      rect(x, y, 50, 50);
+      x+=50;
+    }
+    y+=50;
+    x = 512-120;
+  }
+  y = 384;
+  x = 512 + 120;
+  for (color[] m : player.right) {
+    for (color n : m) {
+      fill(n);
+      rect(x, y, 50, 50);
+      x+=50;
+    }
+    y+=50;
+    x = 512 + 120;
+  }
+  
 }
 
 void keyPressed() {
@@ -40,7 +93,10 @@ void keyPressed() {
   if (key == 100) {//d
     player.rotateRight();
   }
-  if (key == 'b' || key == 'B') {
-   player.turnFC(); 
+  if (key == 'b') {
+    player.turnFC();
+  }
+  if (key == 'B') {
+    player.turnFCC();
   }
 }

@@ -141,42 +141,42 @@ public abstract class RubiksCube {
    FXNS Incorporating turning     
    
    ***********************************************************************/
-  protected abstract void turn(color[][] a, color[][] b, color[][] c, color[][] d, color[][] e);//to be implemented for specific use within 2x2 and 3x3 rubiks cube classes
+  protected abstract void turn(color[][] a, int turn);//to be implemented for specific use within 2x2 and 3x3 rubiks cube classes turn 1 == clockwise 0 == CC
   public void turnFC() {//will turn the front face clockwise;
-    turn(front, up, right, down, left);
+    turn(front,1);
   }//end
   public void turnFCC() {//will turn front face Counter clockwise
-    turn(front, up, left, down, right);
+    turn(front,0);
   }//end
   public void turnRC() {//right face clockwise
-    turn(right, up, back, down, front);
+    turn(right,1);
   }//end 
   public void turnRCC() {//right face counterclockwise
-    turn(right, up, front, down, back);
+    turn(right,0);
   }//end
   public void turnLC() {//left face clockwise
-    turn(left, up, front, down, back);
+    turn(left,1);
   }//end 
   public void turnLCC() {//left face counterClockwise
-    turn(left, up, back, down, front);
+    turn(left,0);
   }//end 
   public void turnBC() {//back face clockwise
-    turn(back, up, left, down, right);
+    turn(back,1);
   }//end 
   public void turnBCC() {//turn back face counterclockwise
-    turn(back, up, right, down, left);
+    turn(back,0);
   }//end 
   public void turnUC() {//turn up face clockwise
-    turn(up, back, right, front, left);
+    turn(up,1);
   }//end 
   public void turnUCC() {//turn up face Counterclockwise
-    turn(up, back, left, front, right);
+    turn(up,0);
   }//end
   public void turnDC() {//turn down face Clockwise
-    turn(down, front, right, back, left);
+    turn(down,1);
   }//end
   public void turnDCC() {//turn down face Counter Clockwise
-    turn(down, front, left, back, right);
+    turn(down,0);
   }//end
   /**********************************************************************
    FXNS Involving changing perspective     
