@@ -7,6 +7,7 @@ Users can select between types of cube (2x2 or 3x3) and viewing style (front fac
 The user can then shuffle the cube.
 All 6 moves are availible to the user to make, as well as rotating the cube physically without altering its state.
 The user can also ask for a hint and and the move that will solve the cube the fastest will be printed in the terminal.
+Lastly, the user can experience immense satisfaction when toggling on/off the autosolver, in which the cube magically solves itself from any state.
 
 ### Inner Workings
 We use six 2D arrays to store the colors of each face. 
@@ -19,11 +20,11 @@ matches it), the stack is popped. If the move is incorrect, the opposite is push
 if the stack contains any circular moves (for of any move in a row or one move + its oppisite), and pops them if they are present.
 
 ### Launch Instructions
+
+**Setup**
 1. Clone repo.
 2. Open file located at: ThinkThankThunked/Run_Rubiks/Run_Rubiks.pde  
 3. Click on "Play" button in top left corner of window.
-
-Objective: 
 
 **Controls:**
 
@@ -62,6 +63,7 @@ m - turns the down face clockwise
 M - turns the down face counterclockwise
 
 *Misc*
+
 X - shuffles the cube
 z - resets the cube
-Z - starts 
+Z - TOGGLES the solution animation. Cube will solve before your eyes with this mode toggled.
