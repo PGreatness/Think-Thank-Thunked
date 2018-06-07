@@ -1,6 +1,6 @@
 RubiksCube player;
-Button test = new Button(300, 500, 110, 40, "TurnFC()");
-//Start begin = new Start();
+ToggleButton cutout = new ToggleButton(300, 500, 110, 60, "Toggle Cutout");
+Button turnFC = new Button(300, 600, 110, 60, "Turn Front Clockwise");
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
 void setup() {
@@ -17,7 +17,7 @@ void setup() {
   player.down[0][0] = color(156, 156, 156);
   
   */
-  //for testing ignore otherwise
+  //for cutouting ignore otherwise
   solve = false;
 }
 
@@ -25,83 +25,107 @@ void draw() {
   clear();
   int x = 512;
   int y = 384;
-  test.makeButton();
-  if (test.isPressed) {
-   player.turnFC();
-   test.isPressed = false;
-  }
-  for (color[] m : player.front) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+  cutout.makeButton();
+  turnFC.makeButton();
+  if (turnFC.isPressed) {
+    player.turnFC();
+    if (player.solStack.isEmpty()){
+      player.solStack.push(1);
     }
-    y+=50;
+    else if (!(player.solStack.peek() == 0)){
+      player.solStack.push(1);
+    }
+    else{
+      player.solStack.pop(); 
+    }
+    turnFC.isPressed = false;
+  }
+  if (cutout.isPressed) {
+   for(color[] a : player.front) {
+    for(color b : a) {
+      fill(256, 256, 256);
+      rect(x, y, 55, 55);
+     fill(b);
+     rect(x, y, 50, 50);
+     x += 75;
+    }
+    y += 75;
     x = 512;
-  }
-  y-=220;
-  for (color[] m : player.up) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+   }
+  }else{
+    for (color[] m : player.front) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512;
     }
-    y+=50;
-    x = 512;
-  }
-  y-=220;
-  for (color[] m : player.back) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+    y-=220;
+    for (color[] m : player.up) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512;
     }
-    y+=50;
-    x = 512;
-  }
-  y = 504; 
-  for (color[] m : player.down) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+    y-=220;
+    for (color[] m : player.back) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512;
     }
-    y+=50;
-    x = 512;
-  }
-  y = 384;
-  x = 512 -120;
-  for (color[] m : player.left) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+    y = 504; 
+    for (color[] m : player.down) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512;
     }
-    y+=50;
-    x = 512-120;
-  }
-  y = 384;
-  x = 512 + 120;
-  for (color[] m : player.right) {
-    for (color n : m) {
-      fill(n);
-      rect(x, y, 50, 50);
-      x+=50;
+    y = 384;
+    x = 512 -120;
+    for (color[] m : player.left) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512-120;
     }
-    y+=50;
+    y = 384;
     x = 512 + 120;
-  }
-  if (solve){
-    ticks += 1;
-    if(ticks == 60){
-      player.solve(1); 
-      ticks = 0;
+    for (color[] m : player.right) {
+      for (color n : m) {
+        fill(n);
+        rect(x, y, 50, 50);
+        x+=50;
+      }
+      y+=50;
+      x = 512 + 120;
     }
-  }//end solve animation
+    if (solve){
+      ticks += 1;
+        if(ticks == 60){
+        player.solve(1); 
+        ticks = 0;
+      }
+    }//end solve animation
   
-  if (player.isSolved()){ //if at anypoint the cube is solved, clear the moves stack
-     Stack<Integer> newStack  = new Stack<Integer>(); 
-     player.solStack = newStack; 
+    if (player.isSolved()){ //if at anypoint the cube is solved, clear the moves stack
+       Stack<Integer> newStack  = new Stack<Integer>(); 
+       player.solStack = newStack; 
+    }
   }
 }//end draw
 
@@ -314,5 +338,6 @@ void keyPressed() {
   }*/
 }
 void mouseClicked() {
- test.mouseClicked(); 
+ cutout.mouseClicked();
+ turnFC.mouseClicked();
 }

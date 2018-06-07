@@ -16,7 +16,7 @@ public class Button {
   public void makeButton() {
       fill(#C1BFBF);
       rect(x, y, xsize, ysize);
-      fill(#FF0000);
+      fill(#0A0A0A);
       text(message, x, y, xsize, ysize); 
   }
   void mouseClicked() {
