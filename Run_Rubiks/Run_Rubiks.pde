@@ -380,6 +380,62 @@ void keyPressed() {
   if (key == 'X' || key == 'x') {
     player.shuffle();
   }
+  if (key == 'r'){
+     if (player.solStack.isEmpty()){
+        System.out.println("It is solved already!");
+     }
+     else{
+        int top = player.solStack.peek();
+        if (top == 0){
+          System.out.println("Hint: press b");
+        }
+        if (top == 1){
+          System.out.println("Hint: press B");
+        }
+        if (top == 2){
+          System.out.println("Hint: press g");
+        }
+        if (top == 3){
+          System.out.println("Hint: press G");
+        }
+        if (top == 4){
+          System.out.println("Hint: press h");
+        }
+        if (top == 5){
+          System.out.println("Hint: press H");
+        }
+        if (top == 6){
+          System.out.println("Hint: press m");
+        }
+        if (top == 7){
+          System.out.println("Hint: press M");
+        }
+        if (top == 8){
+          System.out.println("Hint: press j");
+        }
+        if (top == 9){
+          System.out.println("Hint: press J");
+        }
+        if (top == 10){
+          System.out.println("Hint: press n");
+        }
+        if (top == 11){
+          System.out.println("Hint: press N");
+        }
+        if (top == 12){
+          System.out.println("Hint: press w");
+        }
+        if (top == 13){
+          System.out.println("Hint: press s");
+        }
+        if (top == 14){
+          System.out.println("Hint: press a");
+        }
+        if (top == 15){
+          System.out.println("Hint: press d");
+        }
+     }
+  }
   /*if (key == 't'){
    System.out.println("is it solved? " + player.isSolved());
    System.out.println("empty? "+ player.solStack.isEmpty());
