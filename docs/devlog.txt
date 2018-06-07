@@ -32,8 +32,10 @@ Final Project Devlog
 6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces (Peter)
        - Wrote README, revised UML Diagram and flowchart (Colin)
        - Updated plan to reflect workflow (Colin)
+6/6/18 - All faces turning completely functional(Peter)
+       - Move tracking --> solver functionality(Peter)
 
-6/7/18 - 
+6/7/18 - Created the threeCube class based on the twoCube (Peter)
        - Updated/revised devlog, README, UML Diagram, flowchart (Colin)
        - Improved move tracking by updating stack when user makes a move (Colin)
        
