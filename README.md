@@ -28,15 +28,18 @@ Objective:
 **Controls:**
 
 *On-Screen Buttons*
+
 Toggle Cutout - toggles the style in which the cube is displayed. One style depicts all 6 faces 'unfolded', with the front face in the center, while the other style depitcs only the front face visible.
 
 *Rotation*
+
 W - physically rotates upward (front face ---> up face)
 A - physically rotates left (front face ---> left face)
 S - physically rotates right (front face ---> right face)
 D - physically rotates downward (front face ---> down face)
 
 *Turning*
+
 b - turns the front face clockwise
 B - turns the front face counterclockwise
 
