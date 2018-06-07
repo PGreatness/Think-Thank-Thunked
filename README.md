@@ -35,31 +35,41 @@ Toggle Cutout - toggles the style in which the cube is displayed. One style depi
 *Rotation*
 
 W - physically rotates upward (front face ---> up face)
+
 A - physically rotates left (front face ---> left face)
+
 S - physically rotates right (front face ---> right face)
+
 D - physically rotates downward (front face ---> down face)
 
 *Turning*
 
 b - turns the front face clockwise
+
 B - turns the front face counterclockwise
 
 g - turns the right face clockwise
+
 G - turns the right face counterclockwise
 
 g - turns the right face clockwise
+
 G - turns the right face counterclockwise
 
 h - turns the left face clockwise
+
 H - turns the left face counterclockwise
 
 n - turns the back face clockwise
+
 N - turns the back face counterclockwise
 
 j - turns the up face clockwise
+
 J - turns the up face counterclockwise
 
 m - turns the down face clockwise
+
 M - turns the down face counterclockwise
 
 *Misc*
