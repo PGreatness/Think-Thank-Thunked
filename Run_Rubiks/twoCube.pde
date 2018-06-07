@@ -6,6 +6,7 @@ public class twoCube extends RubiksCube {
     down = new color[2][2];
     left = new color[2][2];
     right = new color[2][2];
+    solStack = new Stack<Integer>();
   }//end constructor
 
   /**
@@ -114,7 +115,7 @@ public class twoCube extends RubiksCube {
     }
     if (a.equals(down) && turn == 1) {
       rotateUp();
-      //now up is in the front pos
+      //now down is in the front pos
       turn(front,1);
       rotateDown();
       //put it back where it was

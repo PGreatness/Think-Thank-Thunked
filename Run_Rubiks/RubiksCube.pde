@@ -1,6 +1,75 @@
+import java.util.Stack;
 public abstract class RubiksCube {
-  protected int size;
+  
+  protected int size;//signifies wether 2x2 or 3x3
   color[][] front, back, left, right, up, down;//6 faces of a rubiks cube
+  /*************************************************************************
+   Solving the cube
+   *************************************************************************/
+
+  protected Stack<Integer> solStack;//stack that holds solution
+  //will track every move performed to allow for contructing a solution backwards
+  /*
+  Integers will represent a move
+   0 = FC = Front clockwise . . . .  etc
+   1 = FCC
+   2 = RC
+   3 = RCC
+   4 = LC
+   5 = LCC
+   6 = DC
+   7 = DCC
+   8 = UC
+   9 = UCC
+   10 = BC
+   11 = BCC
+   12 = RU = Rotate Up  . . . . . etc
+   13 = RD
+   14 = RL
+   15 = RR
+   
+   */
+
+  public void solve() {
+    while (!solStack.isEmpty()) {
+      int peekStack = solStack.peek();
+      switch(peekStack) {
+      case 0: turnFC();
+        break;
+      case 1: turnFCC();
+        break;
+      case 2: turnRC();
+        break;
+      case 3: turnRCC();
+        break;
+      case 4: turnLC();
+        break;
+      case 5: turnLCC();
+        break;
+      case 6: turnDC();
+        break;
+      case 7: turnDCC();
+        break;
+      case 8: turnUC();
+        break;
+      case 9: turnUCC();
+        break;
+      case 10:turnBC();
+        break;
+      case 11:turnBCC();
+        break;
+      case 12:rotateUp();
+        break;
+      case 13:rotateDown();
+        break;
+      case 14:rotateLeft();
+        break;
+      case 15:rotateRight();
+        break;
+      }//end switch
+      solStack.pop();
+    }//end while loop
+  }//end solve
   /**********************************************************************
    General use FXNs  
    
@@ -106,32 +175,32 @@ public abstract class RubiksCube {
 
   public void reset() {
     for (color[] m : front) {//front becomes red
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(237, 19, 37);
       }
     }
     for (color[] m : back) {//becomes orange
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(252, 165, 0);
       }
     }
     for (color[] m : up) {//becomes white
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(255, 255, 255);
       }
     }
     for (color[] m : down) {//becomes yellow
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(254, 255, 0);
       }
     }
     for (color[] m : left) {//becomes green
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(0, 255, 27);
       }
     }
     for (color[] m : right) {//becomes blue
-      for (int x = 0; x < m.length;x++) {
+      for (int x = 0; x < m.length; x++) {
         m[x]= color(0, 14, 255);
       }
     }
@@ -143,40 +212,40 @@ public abstract class RubiksCube {
    ***********************************************************************/
   protected abstract void turn(color[][] a, int turn);//to be implemented for specific use within 2x2 and 3x3 rubiks cube classes turn 1 == clockwise 0 == CC
   public void turnFC() {//will turn the front face clockwise;
-    turn(front,1);
+    turn(front, 1);
   }//end
   public void turnFCC() {//will turn front face Counter clockwise
-    turn(front,0);
+    turn(front, 0);
   }//end
   public void turnRC() {//right face clockwise
-    turn(right,1);
+    turn(right, 1);
   }//end 
   public void turnRCC() {//right face counterclockwise
-    turn(right,0);
+    turn(right, 0);
   }//end
   public void turnLC() {//left face clockwise
-    turn(left,1);
+    turn(left, 1);
   }//end 
   public void turnLCC() {//left face counterClockwise
-    turn(left,0);
+    turn(left, 0);
   }//end 
   public void turnBC() {//back face clockwise
-    turn(back,1);
+    turn(back, 1);
   }//end 
   public void turnBCC() {//turn back face counterclockwise
-    turn(back,0);
+    turn(back, 0);
   }//end 
   public void turnUC() {//turn up face clockwise
-    turn(up,1);
+    turn(up, 1);
   }//end 
   public void turnUCC() {//turn up face Counterclockwise
-    turn(up,0);
+    turn(up, 0);
   }//end
   public void turnDC() {//turn down face Clockwise
-    turn(down,1);
+    turn(down, 1);
   }//end
   public void turnDCC() {//turn down face Counter Clockwise
-    turn(down,0);
+    turn(down, 0);
   }//end
   /**********************************************************************
    FXNS Involving changing perspective     
