@@ -98,6 +98,11 @@ void draw() {
       ticks = 0;
     }
   }//end solve animation
+  
+  if (player.isSolved()){ //if at anypoint the cube is solved, clear the moves stack
+     Stack<Integer> newStack  = new Stack<Integer>(); 
+     player.solStack = newStack; 
+  }
 }//end draw
 
 void keyPressed() {
@@ -303,6 +308,10 @@ void keyPressed() {
   if (key == 'X' || key == 'x'){
     player.shuffle();
   }
+  /*if (key == 't'){
+     System.out.println("is it solved? " + player.isSolved());
+     System.out.println("empty? "+ player.solStack.isEmpty());
+  }*/
 }
 void mouseClicked() {
  test.mouseClicked(); 
