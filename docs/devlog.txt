@@ -1,11 +1,71 @@
-5/26/18 - Devlog created still in planning stages 
+Colin Hosking, Ahnaf Hasan, Peter Cwalina
+APCS02 pd08
+Final Project Devlog 
+2018-06-08
 
-5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-5/30/18 - Decided on pursuing a ribix cube simulation project. We also decided on the data structure to use - instead of having a 3D matrix (array of 2D arrays), we decided it would be better to store data in 6 separate 2D arrays, one for each face. This makes it easy so you dont have to deal with corner and side tiles having multiple colors in the 3D array. We also drew up a way to make sure the program always knows the path to solve the rubix cube. When you shuffle at the beginning, keep track of the moves you make in a STACK.
+5/26/18 - Devlog created still in planning stages
 
-5/31/18 - Created a rubiks cube abstract class
+5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea (Ahnaf)
 
-6/3/18 - Added limited rotational functionality for front face, mainly as a starting point. Face can rotate but doesn't compensate for the other faces yet. 
+5/30/18 - Decided on pursuing a rubiks cube simulation project. We also decided on the data structure to use - instead of having a 3D matrix (array of 2D arrays), we decided it would be better to store data in 6 separate 2D arrays, one for each face. This makes it easy so you dont have to deal with corner and side tiles having multiple colors in the 3D array. We also drew up a way to make sure the program always knows the path to solve the rubix cube. When you shuffle at the beginning, keep track of the moves you make in a STACK. (Colin, Ahnaf, Peter)
+        - Drafted plan to detail project workflow (Colin)
+ 
 
-6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces
+5/31/18 - Created a rubiks cube abstract class (Peter)
+
+6/3/18 - Added limited rotational functionality for front face, mainly as a starting point. Face can rotate but doesn't compensate for the other faces yet. (Peter)
+       - Updated plan to reflect workflow (Colin)
+
+
+6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces (Peter)
+       - Wrote README, revised UML Diagram and flowchart (Colin)
+       - Updated plan to reflect workflow (Colin)
+
+6/7/18 - 
+       - Updated/revised devlog, README, UML Diagram, flowchart (Colin)
+       - Improved move tracking by updating stack when user makes a move (Colin)
+       
+
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Determining the best way to store data in the Rubik's Cube encapsulation. We settled on having six separate 2D arrays, one to represent each face, but not after lots of discussion.  
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- We defined circular moves to be a series of turns/rotations that bring the cube back to the permutation it started at. ie FC,FC,FC,FC or FC,FCC. 
+- The cube can be dificult at first to use and visualize because we are trying to represent a 3D image on a 2D surface
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- We learned how Processing and Java fit in together, and how to effectively use the draw() method. One
+idea that really opened our minds was that the draw function's only job is to alter the display based on values in the 2D arrays to represent faces. In order 
+to change what gets displayed, you do NOT have to alter draw(), but instead alter the values inside these containers. 
+- This project also solidified the concept of helper methods and using what you wrote before to your advantage. We realized that turning a face can be represented with only one method, just with a different parameter for the face to be turned. This cut down significantly on the number of methods and cases we had to examine.
+- We learned how to create buttons in Processing.
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Mid-development we
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Planning before coding. This may sound like we are simply regurgitating what has been said all term, but we really mean it. Roughly half our time was devoted to planning, organizing, drafting up UMLs and flowcharts, creating a todo list and workflow priorities.
+- Adding small changes may take a lot more time than you think, so it is important to plan your time ahead. 
+- Use helper functions that make your code clean.
+- Thnk simple. Many complex ideas were thrown around when deciding how to implement hint functionality and move tracking, but we finally settled on a simple, yet effective idea.
+ 
