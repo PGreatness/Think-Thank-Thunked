@@ -32,10 +32,10 @@ public abstract class RubiksCube {
 
   public void solve(int x) {
     while (!solStack.isEmpty()) {
-      if (isSolved()){
-         Stack<Integer> newStack  = new Stack<Integer>(); //clears the solutions stack
-         solStack = newStack;
-         return;  //If shuffle by random chance made circular move back to solved state, animation will stop
+      if (isSolved()) {
+        Stack<Integer> newStack  = new Stack<Integer>(); //clears the solutions stack
+        solStack = newStack;
+        return;  //If shuffle by random chance made circular move back to solved state, animation will stop
       }
       int peekStack = solStack.peek();
       switch(peekStack) {
