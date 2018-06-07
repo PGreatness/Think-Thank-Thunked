@@ -101,69 +101,198 @@ void draw() {
 }//end draw
 
 void keyPressed() {
-  if (key == 119) {//w
+  if (key == 119) {//RU
     player.rotateUp();
-    player.solStack.push(13);//pushes opposite of move performed to make the process reversible into a solved state
+    if (player.solStack.isEmpty()){
+      player.solStack.push(13);
+    }
+    else if (!(player.solStack.peek() == 12)){
+       player.solStack.push(13);//pushes opposite of move performed to make the process reversible into a solved state
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 97) {//a
+  if (key == 97) {//RL
     player.rotateLeft();
-    player.solStack.push(15);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(15);
+    }
+    else if (!(player.solStack.peek() == 14)){
+      player.solStack.push(15);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 115) {//s
-    player.rotateDown();
-    player.solStack.push(12);
+  if (key == 115) {//RD
+      player.rotateDown();
+    if (player.solStack.isEmpty()){
+      player.solStack.push(12);
+    }
+    else if (!(player.solStack.peek() == 13)){
+      player.solStack.push(12);
+      }
+      else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 100) {//d
-    player.rotateRight();
-    player.solStack.push(14);
-  }
-  if (key == 'b') {
+  if (key == 100) {//RR
+      player.rotateRight();
+      if (player.solStack.isEmpty()){
+        player.solStack.push(14);
+      }
+      else if (!(player.solStack.peek() == 15)){
+        player.solStack.push(14);
+      }
+      else{
+     player.solStack.pop(); 
+    }
+    }
+    
+  if (key == 'b') { //FC
     player.turnFC();
-    player.solStack.push(1);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(1);
+    }
+    else if (!(player.solStack.peek() == 0)){
+      player.solStack.push(1);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'B') {
+  if (key == 'B') { //FCC
     player.turnFCC();
-    player.solStack.push(0);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(0);
+    }
+    else if (!(player.solStack.peek() == 1)){
+      player.solStack.push(0);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'g') {
+  if (key == 'g') { //RC
     player.turnRC();
-    player.solStack.push(3);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(3);
+    }
+    else if (!(player.solStack.peek() == 2)){
+      player.solStack.push(3);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'G') {
+  if (key == 'G') { //RCC
     player.turnRCC();
-    player.solStack.push(2);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(2);
+    }
+    else if (!(player.solStack.peek() == 3)){
+      player.solStack.push(2);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'h') {
+  if (key == 'h') { //LC
     player.turnLC();
-    player.solStack.push(5);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(5);
+    }
+    else if (!(player.solStack.peek() == 4)){
+      player.solStack.push(5);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'H') {
+  if (key == 'H') { //LCC
     player.turnLCC();
-    player.solStack.push(4);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(4);
+    }
+    else if (!(player.solStack.peek() == 5)){
+      player.solStack.push(4);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'n') {
+  if (key == 'n') { //BC
     player.turnBC();
-    player.solStack.push(11);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(11);
+    }
+    else if (!(player.solStack.peek() == 10)){
+      player.solStack.push(11);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'N') {
+  if (key == 'N') { //BCC
     player.turnBCC();
-    player.solStack.push(10);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(10);
+    }
+    else if (!(player.solStack.peek() == 11)){
+      player.solStack.push(10);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'j') {
+  if (key == 'j') { //UC
     player.turnUC();
-    player.solStack.push(9);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(9);
+    }
+    else if (!(player.solStack.peek() == 8)){
+      player.solStack.push(9);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'J') {
+  if (key == 'J') { //UCC
     player.turnUCC();
-    player.solStack.push(8);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(8);
+    }
+    else if (!(player.solStack.peek() == 9)){
+      player.solStack.push(8);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'm') {
+  if (key == 'm') { //DC
     player.turnDC();
-    player.solStack.push(7);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(7);
+    }
+    else if (!(player.solStack.peek() == 6)){
+      player.solStack.push(7);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
-  if (key == 'M') {
+  if (key == 'M') { //DCC
     player.turnDCC();
-    player.solStack.push(6);
+    if (player.solStack.isEmpty()){
+      player.solStack.push(6);
+    }
+    else if (!(player.solStack.peek() == 7)){
+      player.solStack.push(6);
+    }
+    else{
+     player.solStack.pop(); 
+    }
   }
   if (key == 'z'){
     player.solve(0);
