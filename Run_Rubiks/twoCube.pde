@@ -7,6 +7,7 @@ public class twoCube extends RubiksCube {
     left = new color[2][2];
     right = new color[2][2];
     solStack = new Stack<Integer>(); //move tracking
+    size = 2; //we've got a 2x2
   }//end constructor
 
   /**
@@ -139,7 +140,7 @@ public class twoCube extends RubiksCube {
     a[0][1] = a[1][1];
     a[1][1] = a[1][0];
     a[1][0] = temp;
-  }//end ration function
+  }//end rotation helper function
 
   public void rotateUp() {
     color[][] temp = front;
