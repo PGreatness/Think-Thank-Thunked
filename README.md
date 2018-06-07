@@ -19,6 +19,46 @@ matches it), the stack is popped. If the move is incorrect, the opposite is push
 if the stack contains any circular moves (for of any move in a row or one move + its oppisite), and pops them if they are present.
 
 ### Launch Instructions
-1. Open program through Processing application.
-2. Select type of cube and viewing style.
-3. User labled buttons to navigate the simulation
+1. Clone repo.
+2. Open file located at: ThinkThankThunked/Run_Rubiks/Run_Rubiks.pde  
+3. Click on "Play" button in top left corner of window.
+
+Objective: 
+
+**Controls:**
+
+*On-Screen Buttons*
+Toggle Cutout - toggles the style in which the cube is displayed. One style depicts all 6 faces 'unfolded', with the front face in the center, while the other style depitcs only the front face visible.
+
+*Rotation*
+W - physically rotates upward (front face ---> up face)
+A - physically rotates left (front face ---> left face)
+S - physically rotates right (front face ---> right face)
+D - physically rotates downward (front face ---> down face)
+
+*Turning*
+b - turns the front face clockwise
+B - turns the front face counterclockwise
+
+g - turns the right face clockwise
+G - turns the right face counterclockwise
+
+g - turns the right face clockwise
+G - turns the right face counterclockwise
+
+h - turns the left face clockwise
+H - turns the left face counterclockwise
+
+n - turns the back face clockwise
+N - turns the back face counterclockwise
+
+j - turns the up face clockwise
+J - turns the up face counterclockwise
+
+m - turns the down face clockwise
+M - turns the down face counterclockwise
+
+*Misc*
+X - shuffles the cube
+z - resets the cube
+Z - starts 
