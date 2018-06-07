@@ -6,7 +6,7 @@ public class twoCube extends RubiksCube {
     down = new color[2][2];
     left = new color[2][2];
     right = new color[2][2];
-    solStack = new Stack<Integer>();
+    solStack = new Stack<Integer>(); //move tracking
   }//end constructor
 
   /**

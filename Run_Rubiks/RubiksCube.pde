@@ -32,6 +32,9 @@ public abstract class RubiksCube {
 
   public void solve(int x) {
     while (!solStack.isEmpty()) {
+      if (isSolved()){
+         return;  //If shuffle by random chance made circular move back to solved state, animation will stop
+      }
       int peekStack = solStack.peek();
       switch(peekStack) {
       case 0: 
@@ -90,12 +93,13 @@ public abstract class RubiksCube {
     }//end while loop
   }//end solve
   /**********************************************************************
-   General use FXNs  
+   General use FXNs 
    
    ***********************************************************************/
   public void shuffle() {
     int operation;
-    for (int x = 0; x < 50; x++) {
+    reset(); //resets the cube to prevent lots of moves being pushed into the moves stack
+    for (int x = 0; x < 30; x++) {
       operation = (int)(Math.random() * 16);
       switch(operation) {
       case 0: 
@@ -295,6 +299,8 @@ public abstract class RubiksCube {
         m[x]= color(0, 14, 255);
       }
     }
+    Stack<Integer> newStack  = new Stack<Integer>(); //clears the solutions stack
+    solStack = newStack;
   }//end reset
 
   /**********************************************************************

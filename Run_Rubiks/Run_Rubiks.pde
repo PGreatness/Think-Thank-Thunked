@@ -1,5 +1,5 @@
 RubiksCube player;
-Button test = new Button(300, 500, 200, 100, "TurnFC()");
+Button test = new Button(300, 500, 110, 40, "TurnFC()");
 //Start begin = new Start();
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
