@@ -1,6 +1,6 @@
 import java.util.Stack;
 public abstract class RubiksCube {
-  
+
   protected int size;//signifies wether 2x2 or 3x3
   color[][] front, back, left, right, up, down;//6 faces of a rubiks cube
   /*************************************************************************
@@ -30,50 +30,141 @@ public abstract class RubiksCube {
    
    */
 
-  public void solve() {
+  public void solve(int x) {
     while (!solStack.isEmpty()) {
       int peekStack = solStack.peek();
       switch(peekStack) {
-      case 0: turnFC();
+      case 0: 
+        turnFC();
         break;
-      case 1: turnFCC();
+      case 1: 
+        turnFCC();
         break;
-      case 2: turnRC();
+      case 2: 
+        turnRC();
         break;
-      case 3: turnRCC();
+      case 3: 
+        turnRCC();
         break;
-      case 4: turnLC();
+      case 4: 
+        turnLC();
         break;
-      case 5: turnLCC();
+      case 5: 
+        turnLCC();
         break;
-      case 6: turnDC();
+      case 6: 
+        turnDC();
         break;
-      case 7: turnDCC();
+      case 7: 
+        turnDCC();        
         break;
-      case 8: turnUC();
+      case 8: 
+        turnUC();
         break;
-      case 9: turnUCC();
+      case 9: 
+        turnUCC();
         break;
-      case 10:turnBC();
+      case 10:
+        turnBC();
         break;
-      case 11:turnBCC();
+      case 11:
+        turnBCC();
         break;
-      case 12:rotateUp();
+      case 12:
+        rotateUp();
         break;
-      case 13:rotateDown();
+      case 13:
+        rotateDown();
         break;
-      case 14:rotateLeft();
+      case 14:
+        rotateLeft();
         break;
-      case 15:rotateRight();
+      case 15:
+        rotateRight();        
         break;
       }//end switch
       solStack.pop();
+      if (x == 1) {
+        break;
+      }
     }//end while loop
   }//end solve
   /**********************************************************************
    General use FXNs  
    
    ***********************************************************************/
+  public void shuffle() {
+    int operation;
+    for (int x = 0; x < 50; x++) {
+      operation = (int)(Math.random() * 16);
+      switch(operation) {
+      case 0: 
+        turnFC();
+        solStack.push(1);
+        break;
+      case 1: 
+        turnFCC();
+        solStack.push(0);
+        break;
+      case 2: 
+        turnRC();
+        solStack.push(3);
+        break;
+      case 3: 
+        turnRCC();
+        solStack.push(2);
+        break;
+      case 4: 
+        turnLC();
+        solStack.push(5);
+        break;
+      case 5: 
+        turnLCC();
+        solStack.push(4);
+        break;
+      case 6: 
+        turnDC();
+        solStack.push(7);
+        break;
+      case 7: 
+        turnDCC();
+        solStack.push(6);
+        break;
+      case 8: 
+        turnUC();
+        solStack.push(9);
+        break;
+      case 9: 
+        turnUCC();
+        solStack.push(8);
+        break;
+      case 10:
+        turnBC();
+        solStack.push(11);
+        break;
+      case 11:
+        turnBCC();
+        solStack.push(10);
+        break;
+      case 12:
+        rotateUp();
+        solStack.push(13);
+        break;
+      case 13:
+        rotateDown();
+        solStack.push(12);
+        break;
+      case 14:
+        rotateLeft();
+        solStack.push(15);
+        break;
+      case 15:
+        rotateRight();
+        solStack.push(14);
+        break;
+      }//end switch
+    }
+  }//end shuffle
   public String toString() {
     String retVal = "";
     retVal += "Front face:\n";

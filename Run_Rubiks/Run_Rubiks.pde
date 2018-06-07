@@ -1,11 +1,13 @@
 RubiksCube player;
 Button test = new Button(300, 500, 200, 100, "TurnFC()");
 //Start begin = new Start();
-
+boolean solve;//global for solving instantly vs animated solving
+int ticks;//used to determine frames since last solve update
 void setup() {
   size(1024, 768);
   player = new twoCube();
   player.reset();
+  ticks = 0;
   /*
   player.front[0][0] = color(156, 156, 156);
   player.back[0][0] = color(156, 156, 156);
@@ -16,6 +18,7 @@ void setup() {
   
   */
   //for testing ignore otherwise
+  solve = false;
 }
 
 void draw() {
@@ -88,8 +91,14 @@ void draw() {
     y+=50;
     x = 512 + 120;
   }
-  
-}
+  if (solve){
+    ticks += 1;
+    if(ticks == 60){
+      player.solve(1); 
+      ticks = 0;
+    }
+  }//end solve animation
+}//end draw
 
 void keyPressed() {
   if (key == 119) {//w
@@ -156,8 +165,14 @@ void keyPressed() {
     player.turnDCC();
     player.solStack.push(6);
   }
-  if (key == 'z' || key == 'Z'){
-    player.solve();
+  if (key == 'z'){
+    player.solve(0);
+  }
+  if (key == 'Z'){
+    solve = !solve;
+  }
+  if (key == 'X' || key == 'x'){
+    player.shuffle();
   }
 }
 void mouseClicked() {
