@@ -492,7 +492,6 @@ void keyPressed() {
   }
   if (key == 'y'){
         if (player.size == 2){
-          System.out.println("A");
            player = three; 
         }
         else{
