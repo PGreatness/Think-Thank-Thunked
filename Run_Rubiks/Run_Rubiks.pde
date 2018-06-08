@@ -2,8 +2,8 @@ RubiksCube player;
 RubiksCube two;
 RubiksCube three;
 ToggleButton cutout = new ToggleButton(200, 500, 110, 60, "Toggle Cutout");
-ToggleButton switchCube = new ToggleButton(200,570,110,60, "Switch cube type");
-Button helpScreen = new Button(100, 200, 140, 60, "Click For Commands"); //show keyboard commands
+ToggleButton switchCube = new ToggleButton(200,570,110, 90, "Switch cube type");
+Button helpScreen = new Button(200, 200, 140, 60, "Click For Commands"); //show keyboard commands
 ToggleButton goBack = new ToggleButton(2000, 2000, 120, 60, "Click to Go Back"); //go back from the help page
 boolean onHelp; //are we on the help page?
 boolean solve;//global for solving instantly vs animated solving
@@ -39,55 +39,67 @@ void draw() {
   clear();
   int x = 512;
   int y = 384;
-  cutout.makeButton();
-  switchCube.makeButton();
-  if (!onHelp) { //becomes replaced with the goBack button
-  helpScreen.x = 100;
-  helpScreen.y = 200;
-  goBack.x = 2000;
-  goBack.y = 2000;
-  helpScreen.makeButton();
+  fill(256,256,256);
+  textSize(40);
+  if (!onHelp) {
+  text("Virtual Rubik's Cube 2018!", 10, 40);
   }
-  if (helpScreen.isPressed) { //<>//
-    helpScreen.x = 2000; //<>//
-    helpScreen.y = 2000; //<>//
-    onHelp = true; //<>//
-    goBack.x = 100; //<>//
-    goBack.y = 150; //<>//
-    goBack.makeButton(); //<>//
-    fill(256, 256, 256); //<>//
-    text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " + //<>//
-    "variety of options available to you. \nThey are listed down below:\n\n" +  //<>//
-    //commands from here //<>//
-    "Cubes\n" + //<>//
-    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" + //<>//
-    "Rotations\n" +  //<>//
-    "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" + //<>//
-    "A - Physically rotates the cube left (Front face ----> left face)\n\n" + //<>//
-    "S - Physically rotates the cube right (Front face ---> right face)\n\n" + //<>//
-    "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" + //<>//
-    "Turning\n\n" + //<>//
-    "b - turns the front face clockwise\n\n" + //<>//
-    "B - turns the front face counterclockwise\n\n" +  //<>//
-    "g - turns the right face clockwise\n\n" +  //<>//
-    "G - turns the right face counterclockwise\n\n" + //<>//
-    "g - turns the right face clockwise\n\n" +  //<>//
-    "G - turns the right face counterclockwise\n\n" + //<>//
+  /*default settings as seen on their github:
+  https://github.com/processing/processing/blob/fa91706bf23c4080884b56c0a62b468a15e5d047/core/src/processing/core/PGraphics.java#L985
+  */
+  textSize(12);
+  textLeading(14); //<>//
+  textAlign(LEFT); //<>//
+  textMode(MODEL); //<>//
+  cutout.makeButton(); //<>//
+  switchCube.makeButton(); //<>//
+  if (!onHelp) { //becomes replaced with the goBack button //<>//
+  helpScreen.x = 200; //<>//
+  helpScreen.y = 200; //<>//
+  goBack.x = 2000; //<>//
+  goBack.y = 2000; //<>//
+  helpScreen.makeButton(); //<>//
+  } //<>//
+  if (helpScreen.isPressed) { //<>// //<>//
+    helpScreen.x = 2000; //<>// //<>//
+    helpScreen.y = 2000; //<>// //<>//
+    onHelp = true; //<>// //<>//
+    goBack.x = 200; //<>// //<>//
+    goBack.y = 150; //<>// //<>//
+    goBack.makeButton(); //<>// //<>//
+    fill(256, 256, 256); //<>// //<>//
+    text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " + //<>// //<>//
+    "variety of options available to you. \nThey are listed down below:\n\n" +  //<>// //<>//
+    //commands from here //<>// //<>//
+    "Cubes\n" + //<>// //<>//
+    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" + //<>// //<>//
+    "Rotations\n" +  //<>// //<>//
+    "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" + //<>// //<>//
+    "A - Physically rotates the cube left (Front face ----> left face)\n\n" + //<>// //<>//
+    "S - Physically rotates the cube right (Front face ---> right face)\n\n" + //<>// //<>//
+    "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" + //<>// //<>//
+    "Turning\n\n" + //<>// //<>//
+    "b - turns the front face clockwise\n\n" + //<>// //<>//
+    "B - turns the front face counterclockwise\n\n" +  //<>// //<>//
+    "g - turns the right face clockwise\n\n" +  //<>// //<>//
+    "G - turns the right face counterclockwise\n\n" + //<>// //<>//
+    "g - turns the right face clockwise\n\n" +  //<>// //<>//
+    "G - turns the right face counterclockwise\n\n" + //<>// //<>//
     "h - turns the left face clockwise\n\n" +  //<>//
-    "H - turns the left face counterclockwise\n\n" +  //<>//
-    "n - turns the back face clockwise\n\n" + //<>//
-    "N - turns the back face counterclockwise\n\n" + //<>//
-    "j - turns the up face clockwise\n\n" + //<>//
-    "J - turns the up face counterclockwise\n\n" + //<>//
-    "m - turns the down face clockwise\n\n" + //<>//
-    "M - turns the down face counterclockwise", width / 2 - 100, (height / 8) - 50, width - 100, height - 100); //<>//
-    helpScreen.isPressed = true; //keeps the guide up //<>//
-    if (goBack.isPressed) { //<>//
-      onHelp = false; //<>//
-      helpScreen.isPressed = false; //<>//
-      goBack.isPressed = false;
-    }//end guide //<>//
-  }else{ //<>//
+    "H - turns the left face counterclockwise\n\n" +  //<>// //<>//
+    "n - turns the back face clockwise\n\n" + //<>// //<>//
+    "N - turns the back face counterclockwise\n\n" + //<>// //<>//
+    "j - turns the up face clockwise\n\n" + //<>// //<>//
+    "J - turns the up face counterclockwise\n\n" + //<>// //<>//
+    "m - turns the down face clockwise\n\n" + //<>// //<>//
+    "M - turns the down face counterclockwise", width / 2 - 100, (height / 8) - 50, width - 100, height - 100); //<>// //<>//
+    helpScreen.isPressed = true; //keeps the guide up //<>// //<>//
+    if (goBack.isPressed) { //<>// //<>//
+      onHelp = false; //<>// //<>//
+      helpScreen.isPressed = false; //<>// //<>//
+      goBack.isPressed = false; //<>//
+    }//end guide //<>// //<>//
+  }else{ //<>// //<>//
   if (switchCube.isPressed) { //user wishes to switch cubes //<>//
    if (player.size == 2) { //<>//
     player = three; //<>//
