@@ -4,7 +4,7 @@ RubiksCube three;
 ToggleButton cutout = new ToggleButton(200, 500, 110, 60, "Toggle Cutout");
 ToggleButton switchCube = new ToggleButton(200,570,110,60, "Switch to 2x2 cube");
 Button helpScreen = new Button(100, 200, 140, 60, "Click For Commands"); //show keyboard commands
-ToggleButton goBack = new ToggleButton(100, 100, 120, 60, "Click to Go Back"); //go back from the help page
+ToggleButton goBack = new ToggleButton(2000, 2000, 120, 60, "Click to Go Back"); //go back from the help page
 boolean onHelp; //are we on the help page?
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
@@ -37,10 +37,18 @@ void draw() {
   cutout.makeButton();
   switchCube.makeButton();
   if (!onHelp) { //becomes replaced with the goBack button
+  helpScreen.x = 100;
+  helpScreen.y = 200;
+  goBack.x = 2000;
+  goBack.y = 2000;
   helpScreen.makeButton();
   }
   if (helpScreen.isPressed) {
+    helpScreen.x = 2000;
+    helpScreen.y = 2000;
     onHelp = true;
+    goBack.x = 100;
+    goBack.y = 150;
     goBack.makeButton();
     fill(256, 256, 256);
     text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " +
