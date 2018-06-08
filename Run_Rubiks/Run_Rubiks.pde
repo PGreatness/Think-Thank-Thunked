@@ -1,8 +1,11 @@
 RubiksCube player;
 RubiksCube two;
 RubiksCube three;
-ToggleButton cutout = new ToggleButton(300, 500, 110, 60, "Toggle Cutout");
-Button turnFC = new Button(300, 600, 110, 60, "Turn Front Clockwise");
+ToggleButton cutout = new ToggleButton(200, 500, 110, 60, "Toggle Cutout");
+ToggleButton switchCube = new ToggleButton(200,570,110,60, "Switch to 2x2 cube");
+Button helpScreen = new Button(100, 200, 140, 60, "Click For Commands"); //show keyboard commands
+ToggleButton goBack = new ToggleButton(100, 100, 120, 60, "Click to Go Back"); //go back from the help page
+boolean onHelp; //are we on the help page?
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
 void setup() {
@@ -13,6 +16,7 @@ void setup() {
   two.reset();
   player = two;
   ticks = 0;
+  onHelp = false;
   /*
   player.front[0][0] = color(156, 156, 156);
    player.back[0][0] = color(156, 156, 156);
@@ -31,17 +35,53 @@ void draw() {
   int x = 512;
   int y = 384;
   cutout.makeButton();
-  turnFC.makeButton();
-  if (turnFC.isPressed) {
-    player.turnFC();
-    if (player.solStack.isEmpty()) {
-      player.solStack.push(1);
-    } else if (!(player.solStack.peek() == 0)) {
-      player.solStack.push(1);
-    } else {
-      player.solStack.pop();
+  switchCube.makeButton();
+  if (!onHelp) { //becomes replaced with the goBack button
+  helpScreen.makeButton();
+  }
+  if (helpScreen.isPressed) {
+    onHelp = true;
+    goBack.makeButton();
+    fill(256, 256, 256);
+    text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " +
+    "variety of options available to you. \nThey are listed down below:\n\n" + 
+    //commands from here
+    "Cubes\n" +
+    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" +
+    "Rotations\n" + 
+    "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" +
+    "A - Physically rotates the cube left (Front face ----> left face)\n\n" +
+    "S - Physically rotates the cube right (Front face ---> right face)\n\n" +
+    "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" +
+    "Turning\n\n" +
+    "b - turns the front face clockwise\n\n" +
+    "B - turns the front face counterclockwise\n\n" + 
+    "g - turns the right face clockwise\n\n" + 
+    "G - turns the right face counterclockwise\n\n" +
+    "g - turns the right face clockwise\n\n" + 
+    "G - turns the right face counterclockwise\n\n" +
+    "h - turns the left face clockwise\n\n" + 
+    "H - turns the left face counterclockwise\n\n" + 
+    "n - turns the back face clockwise\n\n" +
+    "N - turns the back face counterclockwise\n\n" +
+    "j - turns the up face clockwise\n\n" +
+    "J - turns the up face counterclockwise\n\n" +
+    "m - turns the down face clockwise\n\n" +
+    "M - turns the down face counterclockwise", width / 2 - 100, (height / 8) - 50, width - 100, height - 100);
+    helpScreen.isPressed = true; //keeps the guide up
+    if (goBack.isPressed) {
+      onHelp = false;
+      helpScreen.isPressed = false;
+    }//end guide 
+  }else{
+  if (switchCube.isPressed) { //user wishes to switch cubes
+   if (player.size == 2) {
+    player = three;
+    switchCube.isPressed = !switchCube.isPressed;
+   }else{
+    player = two;
+    switchCube.isPressed = !switchCube.isPressed;
     }
-    turnFC.isPressed = false;
   }
   if (cutout.isPressed) {
     if (player.size == 2) {    
@@ -70,7 +110,7 @@ void draw() {
         x = 512;
       }
     }//if you're 3x3 you have a different draw
-  }//for button 
+  }//for button
   else {
     if (player.size == 2) {
       for (color[] m : player.front) {
@@ -211,6 +251,7 @@ void draw() {
   if (player.isSolved()) { //if at anypoint the cube is solved, clear the moves stack
     Stack<Integer> newStack  = new Stack<Integer>(); 
     player.solStack = newStack;
+  }
   }
 }//end draw
 
@@ -457,5 +498,7 @@ void keyPressed() {
 }
 void mouseClicked() {
   cutout.mouseClicked();
-  turnFC.mouseClicked();
+  switchCube.mouseClicked();
+  helpScreen.mouseClicked();
+  goBack.mouseClicked();
 }
