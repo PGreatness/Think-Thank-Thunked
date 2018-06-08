@@ -94,5 +94,5 @@ LESSONS LEARNED
        - Fixed guide not working after clicking Toggle Cutout twice (Ahnaf)
        - Added large sized title to project (Ahnaf)
 6/8/18 - Added missing misc commands to the guide (Ahnaf)
-
+       - Added a map/layout of the cubes (Ahnaf)
 

@@ -110,7 +110,7 @@ void draw() {
     } //<>//
   } //<>//
   if (cutout.isPressed) { //<>//
-    if (player.size == 2) {     //<>//
+    if (player.size == 2) { //<>//
       for (color[] a : player.front) { //<>//
         for (color b : a) {
           fill(256, 256, 256);
@@ -138,6 +138,17 @@ void draw() {
     }//if you're 3x3 you have a different draw
   }//for button
   else {
+    //makes a map so they know what face is what
+      fill(256,256,256);
+      textSize(25);
+      text("Layout\n  B\n  U\nL F R\n  D", 900, 300);
+      stroke(255);
+      line(900, 300, 975, 300);
+      stroke(0);
+      textSize(12);
+      textLeading(14);
+      textAlign(LEFT);
+      textMode(MODEL);
     if (player.size == 2) {
       for (color[] m : player.front) {
         for (color n : m) {
