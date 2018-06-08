@@ -481,7 +481,8 @@ void keyPressed() {
           System.out.println("Hint: press d");
         }
      }
-     if (key == 'y'){
+  }
+  if (key == 'y'){
         if (player.size == 2){
           System.out.println("A");
            player = three; 
@@ -490,7 +491,6 @@ void keyPressed() {
            player = two; 
         }
      }
-  }
   /*if (key == 't'){
    System.out.println("is it solved? " + player.isSolved());
    System.out.println("empty? "+ player.solStack.isEmpty());
