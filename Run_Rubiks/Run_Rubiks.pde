@@ -2,7 +2,7 @@ RubiksCube player;
 RubiksCube two;
 RubiksCube three;
 ToggleButton cutout = new ToggleButton(200, 500, 110, 60, "Toggle Cutout");
-ToggleButton switchCube = new ToggleButton(200,570,110,60, "Switch to 2x2 cube");
+ToggleButton switchCube = new ToggleButton(200,570,110,60, "Switch cube type");
 Button helpScreen = new Button(100, 200, 140, 60, "Click For Commands"); //show keyboard commands
 ToggleButton goBack = new ToggleButton(2000, 2000, 120, 60, "Click to Go Back"); //go back from the help page
 boolean onHelp; //are we on the help page?
