@@ -84,6 +84,6 @@ z - resets the cube
 
 Z - TOGGLES the solution animation. Cube will solve before your eyes with this mode toggled.
 
-r - a hint is printed in the top left of window
+r - a hint is printed in the right of window
 
 y - toggles between 2x2 and 3x3 cube

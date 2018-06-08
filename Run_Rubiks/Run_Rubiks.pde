@@ -282,7 +282,7 @@ void draw() {
   
   if (hint){ //if user wants hint, display hint
       fill(256, 256, 256);
-      text(s,100,100);
+      text(s,750,200);
   }
 }//end draw
 
