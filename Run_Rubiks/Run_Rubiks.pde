@@ -1,12 +1,17 @@
 RubiksCube player;
+RubiksCube two;
+RubiksCube three;
 ToggleButton cutout = new ToggleButton(300, 500, 110, 60, "Toggle Cutout");
 Button turnFC = new Button(300, 600, 110, 60, "Turn Front Clockwise");
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
 void setup() {
   size(1024, 768);
-  player = new threeCube();
-  player.reset();
+  three = new threeCube();
+  three.reset();
+  two = new twoCube();
+  two.reset();
+  player = two;
   ticks = 0;
   /*
   player.front[0][0] = color(156, 156, 156);
@@ -433,6 +438,15 @@ void keyPressed() {
         }
         if (top == 15){
           System.out.println("Hint: press d");
+        }
+     }
+     if (key == 'y'){
+        if (player.size == 2){
+          System.out.println("A");
+           player = three; 
+        }
+        else{
+           player = two; 
         }
      }
   }

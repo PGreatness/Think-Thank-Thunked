@@ -32,12 +32,14 @@ Final Project Devlog
 6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces (Peter)
        - Wrote README, revised UML Diagram and flowchart (Colin)
        - Updated plan to reflect workflow (Colin)
+       
 6/6/18 - All faces turning completely functional(Peter)
        - Move tracking --> solver functionality(Peter)
 
 6/7/18 - Created the threeCube class based on the twoCube (Peter)
        - Updated/revised devlog, README, UML Diagram, flowchart (Colin)
        - Improved move tracking by updating stack when user makes a move (Colin)
+       - Added hint functionality (Colin)
        
 
 
@@ -62,7 +64,9 @@ to change what gets displayed, you do NOT have to alter draw(), but instead alte
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Mid-development we
+- One mid-development change we had was changing the way we implemented the turning methods. Instead of having 5 parameters, each being one face, we realized the only information we needed to turn a face was the pointer to the face itself and the direction. Thus, 5 params was reduced to 2.
+- Another change is that we realized in order to implement the counter clockwise turns, we could just call the clockwise turn 3 times (taking advantage of the symmetry of a rubik's cube).
+- Also, we realized we only had to hardcode turning for one face - front. All other faces we can physically rotate the cube such that the desired face is the front face, perform the turn, then rotate the cube back.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
