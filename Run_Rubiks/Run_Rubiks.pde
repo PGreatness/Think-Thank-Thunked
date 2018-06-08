@@ -8,6 +8,9 @@ ToggleButton goBack = new ToggleButton(2000, 2000, 120, 60, "Click to Go Back");
 boolean onHelp; //are we on the help page?
 boolean solve;//global for solving instantly vs animated solving
 int ticks;//used to determine frames since last solve update
+String s; //hint string
+Boolean hint; //toggles when user wants hint displayed
+
 void setup() {
   size(1024, 768);
   three = new threeCube();
@@ -17,6 +20,8 @@ void setup() {
   player = two;
   ticks = 0;
   onHelp = false;
+  s = "";
+  hint = false;
   /*
   player.front[0][0] = color(156, 156, 156);
    player.back[0][0] = color(156, 156, 156);
@@ -245,8 +250,7 @@ void draw() {
         }
         y+=50;
         x = 512 + 170;
-      }
-      
+      }  
     }//
   }//else
   if (solve) {//if solving animation toggled perform part of a solve
@@ -260,7 +264,13 @@ void draw() {
   if (player.isSolved()) { //if at anypoint the cube is solved, clear the moves stack
     Stack<Integer> newStack  = new Stack<Integer>(); 
     player.solStack = newStack;
+    s = "It is solved already!"; //updates hint
+    }
   }
+  
+  if (hint){ //if user wants hint, display hint
+      fill(256, 256, 256);
+      text(s,100,100);
   }
 }//end draw
 
@@ -435,61 +445,62 @@ void keyPressed() {
   if (key == 'X' || key == 'x') {
     player.shuffle();
   }
-  if (key == 'r'){
+  if (key == 'r'){    //update hint text according to solStack when s is pressed
      if (player.solStack.isEmpty()){
-        System.out.println("It is solved already!");
+        s = "It is solved already!";
      }
      else{
         int top = player.solStack.peek();
         if (top == 0){
-          System.out.println("Hint: press b");
+          s = "Hint: press b";
         }
         if (top == 1){
-          System.out.println("Hint: press B");
+          s = "Hint: press B";
         }
         if (top == 2){
-          System.out.println("Hint: press g");
+          s = "Hint: press g";
         }
         if (top == 3){
-          System.out.println("Hint: press G");
+          s = "Hint: press G";
         }
         if (top == 4){
-          System.out.println("Hint: press h");
+          s = "Hint: press h";
         }
         if (top == 5){
-          System.out.println("Hint: press H");
+          s = "Hint: press H";
         }
         if (top == 6){
-          System.out.println("Hint: press m");
+          s = "Hint: press m";
         }
         if (top == 7){
-          System.out.println("Hint: press M");
+          s = "Hint: press M";
         }
         if (top == 8){
-          System.out.println("Hint: press j");
+          s = "Hint: press j";
         }
         if (top == 9){
-          System.out.println("Hint: press J");
+          s = "Hint: press J";
         }
         if (top == 10){
-          System.out.println("Hint: press n");
+          s = "Hint: press n";
         }
         if (top == 11){
-          System.out.println("Hint: press N");
+          s = "Hint: press N";
         }
         if (top == 12){
-          System.out.println("Hint: press w");
+          s = "Hint: press w";
         }
         if (top == 13){
-          System.out.println("Hint: press s");
+          s = "Hint: press s";
         }
         if (top == 14){
-          System.out.println("Hint: press a");
+         s =  "Hint: press a";
         }
         if (top == 15){
-          System.out.println("Hint: press d");
+         s =  "Hint: press d";
         }
      }
+     hint = true;
   }
   if (key == 'y'){
         if (player.size == 2){
