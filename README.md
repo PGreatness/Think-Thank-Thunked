@@ -30,7 +30,11 @@ if the stack contains any circular moves (for of any move in a row or one move +
 
 *On-Screen Buttons*
 
+Click for Commands - displays all controls
+
 Toggle Cutout - toggles the style in which the cube is displayed. One style depicts all 6 faces 'unfolded', with the front face in the center, while the other style depitcs only the front face visible.
+
+Switch Cube - toggles type of cube (2x2 or 3x3)
 
 *Rotation*
 
@@ -80,6 +84,6 @@ z - resets the cube
 
 Z - TOGGLES the solution animation. Cube will solve before your eyes with this mode toggled.
 
-r - a hint is printed in the terminal
+r - a hint is printed in the top left of window
 
 y - toggles between 2x2 and 3x3 cube
