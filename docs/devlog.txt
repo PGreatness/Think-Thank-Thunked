@@ -52,7 +52,7 @@ LESSONS LEARNED
 
 5/26/18 - Devlog created still in planning stages
 
-5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea (Ahnaf)
+5/27/18 - Whipped up a super rudimentery proof of concept for the galactica idea and early cube (Ahnaf)
 
 5/30/18 - Decided on pursuing a rubiks cube simulation project. We also decided on the data structure to use - instead of having a 3D matrix (array of 2D arrays), we decided it would be better to store data in 6 separate 2D arrays, one for each face. This makes it easy so you dont have to deal with corner and side tiles having multiple colors in the 3D array. We also drew up a way to make sure the program always knows the path to solve the rubix cube. When you shuffle at the beginning, keep track of the moves you make in a STACK. (Colin, Ahnaf, Peter)
         - Drafted plan to detail project workflow (Colin)
@@ -60,22 +60,39 @@ LESSONS LEARNED
 
 5/31/18 - Created a rubiks cube abstract class (Peter)
 
-6/3/18 - Added limited rotational functionality for front face, mainly as a starting point. Face can rotate but doesn't compensate for the other faces yet. (Peter)
+6/3/18 - Added limited rotational functionality for front face, mainly as a starting point. Face can rotate but doesn't compensate for the other faces yet. (Ahnaf)
        - Updated plan to reflect workflow (Colin)
 
 
-6/5/18 - Improved turning functionality to change other faces as well. Have to do the same for the other faces (Peter)
+6/5/18 - 
+       - Improved turning functionality to change other faces as well. Have to do the same for the other faces (Peter)
        - Wrote README, revised UML Diagram and flowchart (Colin)
        - Updated plan to reflect workflow (Colin)
        
 6/6/18 - All faces turning completely functional(Peter)
        - Move tracking --> solver functionality(Peter)
+       - Removed mouse-clicking method and put in keyboard shortcut for turning front face clockwise (Ahnaf)
+       - Added working turn functionality for front face only (Ahnaf)
+       - Fixed turning to work with all other faces. Renamed left to right (Ahnaf)
+       - Fixed incorrect naming of left and right (Peter)
+       - Added back removed README.md and removed duplicate repo (Ahnaf)
+       - Added rudimentary Button class (Ahnaf)
 
-6/7/18 - Created the threeCube class based on the twoCube (Peter)
+6/7/18 - Fixed Button class, now works as intended (Ahnaf)
+       - Added ToggleButton class (Ahnaf)
+       - Fixed front rotation occurring twice (Ahnaf)
+       - Added PNG file to use in starting screen. Unable to do so (Ahnaf)
+       - Added turning button for front face as a test (Ahnaf)
+       - Removed turn button (Ahnaf)
+       - Created the threeCube class based on the twoCube (Peter)
+       - Added comments to help understand Button classes (Ahnaf)
        - Updated/revised devlog, README, UML Diagram, flowchart (Colin)
        - Improved move tracking by updating stack when user makes a move (Colin)
        - Added hint functionality, debugged hint functionality (Colin)
        - Added toggle between cubes and command page (Ahnaf)
+       - Fixed guide and go back Buttons flashing after clicked (Ahnaf)
+       - Fixed guide not working after clicking Toggle Cutout twice (Ahnaf)
+       - Added large sized title to project (Ahnaf)
        
 
 
