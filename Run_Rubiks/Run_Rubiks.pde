@@ -43,57 +43,58 @@ void draw() {
   goBack.y = 2000;
   helpScreen.makeButton();
   }
-  if (helpScreen.isPressed) {
-    helpScreen.x = 2000;
-    helpScreen.y = 2000;
-    onHelp = true;
-    goBack.x = 100;
-    goBack.y = 150;
-    goBack.makeButton();
-    fill(256, 256, 256);
-    text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " +
-    "variety of options available to you. \nThey are listed down below:\n\n" + 
-    //commands from here
-    "Cubes\n" +
-    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" +
-    "Rotations\n" + 
-    "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" +
-    "A - Physically rotates the cube left (Front face ----> left face)\n\n" +
-    "S - Physically rotates the cube right (Front face ---> right face)\n\n" +
-    "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" +
-    "Turning\n\n" +
-    "b - turns the front face clockwise\n\n" +
-    "B - turns the front face counterclockwise\n\n" + 
-    "g - turns the right face clockwise\n\n" + 
-    "G - turns the right face counterclockwise\n\n" +
-    "g - turns the right face clockwise\n\n" + 
-    "G - turns the right face counterclockwise\n\n" +
-    "h - turns the left face clockwise\n\n" + 
-    "H - turns the left face counterclockwise\n\n" + 
-    "n - turns the back face clockwise\n\n" +
-    "N - turns the back face counterclockwise\n\n" +
-    "j - turns the up face clockwise\n\n" +
-    "J - turns the up face counterclockwise\n\n" +
-    "m - turns the down face clockwise\n\n" +
-    "M - turns the down face counterclockwise", width / 2 - 100, (height / 8) - 50, width - 100, height - 100);
-    helpScreen.isPressed = true; //keeps the guide up
-    if (goBack.isPressed) {
-      onHelp = false;
-      helpScreen.isPressed = false;
-    }//end guide 
-  }else{
-  if (switchCube.isPressed) { //user wishes to switch cubes
-   if (player.size == 2) {
-    player = three;
-    switchCube.isPressed = !switchCube.isPressed;
-   }else{
-    player = two;
-    switchCube.isPressed = !switchCube.isPressed;
-    }
-  }
-  if (cutout.isPressed) {
-    if (player.size == 2) {    
-      for (color[] a : player.front) {
+  if (helpScreen.isPressed) { //<>//
+    helpScreen.x = 2000; //<>//
+    helpScreen.y = 2000; //<>//
+    onHelp = true; //<>//
+    goBack.x = 100; //<>//
+    goBack.y = 150; //<>//
+    goBack.makeButton(); //<>//
+    fill(256, 256, 256); //<>//
+    text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " + //<>//
+    "variety of options available to you. \nThey are listed down below:\n\n" +  //<>//
+    //commands from here //<>//
+    "Cubes\n" + //<>//
+    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" + //<>//
+    "Rotations\n" +  //<>//
+    "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" + //<>//
+    "A - Physically rotates the cube left (Front face ----> left face)\n\n" + //<>//
+    "S - Physically rotates the cube right (Front face ---> right face)\n\n" + //<>//
+    "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" + //<>//
+    "Turning\n\n" + //<>//
+    "b - turns the front face clockwise\n\n" + //<>//
+    "B - turns the front face counterclockwise\n\n" +  //<>//
+    "g - turns the right face clockwise\n\n" +  //<>//
+    "G - turns the right face counterclockwise\n\n" + //<>//
+    "g - turns the right face clockwise\n\n" +  //<>//
+    "G - turns the right face counterclockwise\n\n" + //<>//
+    "h - turns the left face clockwise\n\n" +  //<>//
+    "H - turns the left face counterclockwise\n\n" +  //<>//
+    "n - turns the back face clockwise\n\n" + //<>//
+    "N - turns the back face counterclockwise\n\n" + //<>//
+    "j - turns the up face clockwise\n\n" + //<>//
+    "J - turns the up face counterclockwise\n\n" + //<>//
+    "m - turns the down face clockwise\n\n" + //<>//
+    "M - turns the down face counterclockwise", width / 2 - 100, (height / 8) - 50, width - 100, height - 100); //<>//
+    helpScreen.isPressed = true; //keeps the guide up //<>//
+    if (goBack.isPressed) { //<>//
+      onHelp = false; //<>//
+      helpScreen.isPressed = false; //<>//
+      goBack.isPressed = false;
+    }//end guide //<>//
+  }else{ //<>//
+  if (switchCube.isPressed) { //user wishes to switch cubes //<>//
+   if (player.size == 2) { //<>//
+    player = three; //<>//
+    switchCube.isPressed = !switchCube.isPressed; //<>//
+   }else{ //<>//
+    player = two; //<>//
+    switchCube.isPressed = !switchCube.isPressed; //<>//
+    } //<>//
+  } //<>//
+  if (cutout.isPressed) { //<>//
+    if (player.size == 2) {     //<>//
+      for (color[] a : player.front) { //<>//
         for (color b : a) {
           fill(256, 256, 256);
           rect(x, y, 55, 55);
