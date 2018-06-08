@@ -71,20 +71,20 @@ void draw() {
     text("Welcome to the help screen for the Virtual Rubik's Cube!\nIn this helpful guide, you can find the commands for the " + //<>// //<>//
     "variety of options available to you. \nThey are listed down below:\n\n" +  //<>// //<>//
     //commands from here //<>// //<>//
-    "Cubes\n" + //<>// //<>//
-    "Y - Toggle between 2x2 cube or 3x3 cube\n\n" + //<>// //<>//
-    "Rotations\n" +  //<>// //<>//
+    "*Cubes*\n" + //<>// //<>//
+    "y - Toggle between 2x2 cube or 3x3 cube\n\n" + //<>// //<>//
+    "*Rotations*\n" +  //<>// //<>//
     "W - Physically rotates the cube upwards (Front face ----> up face)\n\n" + //<>// //<>//
     "A - Physically rotates the cube left (Front face ----> left face)\n\n" + //<>// //<>//
     "S - Physically rotates the cube right (Front face ---> right face)\n\n" + //<>// //<>//
     "D - Physically rotates the cube downwards (Front face ----> down face)\n\n" + //<>// //<>//
-    "Turning\n\n" + //<>// //<>//
-    "b - turns the front face clockwise\n\n" + //<>// //<>//
-    "B - turns the front face counterclockwise\n\n" +  //<>// //<>//
-    "g - turns the right face clockwise\n\n" +  //<>// //<>//
-    "G - turns the right face counterclockwise\n\n" + //<>// //<>//
-    "g - turns the right face clockwise\n\n" +  //<>// //<>//
-    "G - turns the right face counterclockwise\n\n" + //<>// //<>//
+    "*Turning*                                                                              *Misc*\n\n" + //<>// //<>//
+    "b - turns the front face clockwise                                           X - shuffles the cube\n\n" + //<>// //<>//
+    "B - turns the front face counterclockwise                               z - resets the cube\n\n" +  //<>// //<>//
+    "g - turns the right face clockwise                                           Z - TOGGLES the solution animation. Cube\n\n" +  //<>// //<>//
+    "G - turns the right face counterclockwise                             will solve before your eyes with this mode\n\n" + //<>// //<>//
+    "g - turns the right face clockwise                                         toggled.\n\n" +  //<>// //<>//
+    "G - turns the right face counterclockwise                               r - a hint is printed in the right of window\n\n" + //<>// //<>//
     "h - turns the left face clockwise\n\n" +  //<>//
     "H - turns the left face counterclockwise\n\n" +  //<>// //<>//
     "n - turns the back face clockwise\n\n" + //<>// //<>//
